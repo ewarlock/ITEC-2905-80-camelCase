@@ -1,3 +1,12 @@
+def banner():
+    """ Display program name """
+    message = 'Awesome camelcase program!!'
+    stars = '*' * len(message)
+    print(f'\n{stars} \n{message} \n{stars} \n')
+
+
+banner()
+
 #get input sentence from user
 sentence_starter = input('Please type in a sentence: ')
 
