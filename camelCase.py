@@ -20,7 +20,8 @@ def camel_case(sentence):
     first_word = sentence_list[0]
     first_word = first_word.lower()
     sentence_camelCase += (first_word)
-
+    sentence_list.pop(0)
+    
     #format the rest of the words in the starter list 
     for word in sentence_list:
         word_start = word[0:1].upper() #take first letter of each word and put in uppercase
