@@ -1,3 +1,6 @@
+class SentenceError(Exception):
+    pass
+
 def banner():
     """ Display program name, using stars """
     message = 'Awesome camelcase program!!'
@@ -8,13 +11,21 @@ def instructions():
     """ Display instructions for how to use the program """
     print('Enter a sentence and this program will convert it to camelcase.\n')
 
+def is_sentence_valid(sentence):
+    sentence_list = sentence.split()
+    if len(sentence_list) < 1:
+        print('Please enter at least one character. Spaces do not count.')
+        return False
+    else:
+        return True
+    
 def camel_case(sentence):
 
     # put each word of sentence into a starter list
     sentence_list = sentence.split()
 
     # make empty string for camel case sentence
-    sentence_camelCase = ""
+    sentence_camelCase = ''
 
     # put the first word into the camelcase string in all lowercase & remove from starter list
     first_word = sentence_list[0]
@@ -35,9 +46,13 @@ def camel_case(sentence):
 
 def main():
     banner()
-    instructions()
+    instructions() 
 
-    sentence = input('Please type in a sentence: ')
+    validate_sentence = False
+    while validate_sentence == False:
+        sentence = input('Please type in a sentence: ')
+        validate_sentence = is_sentence_valid(sentence)
+
     camel_case_sentence = camel_case(sentence)
     print(camel_case_sentence)
 
